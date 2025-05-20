@@ -10,7 +10,8 @@
     "lint": "eslint .",
     "test": "vitest",
     "prepublishOnly": "npm run test && npm run format && npm run test-coverage",
-    "test-coverage": "vitest run --coverage"
+    "test-coverage": "vitest run --coverage",
+    "type-coverage": "type-coverage"
   },
   "author": "talatkuyuk@gmail.com",
   "license": "MIT",
@@ -38,10 +39,17 @@
     "postcss-nesting": "^13.0.1",
     "prettier": "^3.5.3",
     "rimraf": "^5.0.10",
+    "type-coverage": "^2.29.7",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.32.1",
     "vite": "^6.3.5",
     "vite-plugin-dts": "^4.5.4",
     "vitest": "^3.1.4"
+  },
+  "typeCoverage": {
+    "atLeast": 100,
+    "detail": true,
+    "ignoreAsAssertion": true,
+    "strict": true
   }
 }
