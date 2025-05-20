@@ -1,0 +1,6 @@
+.dark-theme {
+  /* or data-theme="dark" */
+  --color-primary: #0056b3;
+  --color-secondary: #545b62;
+  --color-text: #f8f9fa;
+}
