@@ -17,8 +17,7 @@
     "jsx": "react-jsx",
     "declaration": true,
     "declarationDir": "dist",
-    "emitDeclarationOnly": true,
-    "types": ["node"]
+    "emitDeclarationOnly": true
   },
   "include": ["src/**/*"]
 }
