@@ -4,8 +4,13 @@
   "description": "A react ui design system with storybook",
   "main": "index.js",
   "scripts": {
+    "build": "rimraf dist && tsc --build && type-coverage",
+    "format": "npm run prettier && npm run lint",
+    "prettier": "prettier --write .",
+    "lint": "eslint .",
     "test": "vitest",
-    "coverage": "vitest run --coverage"
+    "prepublishOnly": "npm run test && npm run format && npm run test-coverage",
+    "test-coverage": "vitest run --coverage"
   },
   "author": "talatkuyuk@gmail.com",
   "license": "MIT",
