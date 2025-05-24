@@ -53,6 +53,7 @@ export default tseslint.config(
       ...pluginStorybook.configs.recommended.rules,
       "prettier/prettier": "error",
       "react/react-in-jsx-scope": "off",
+      "react/no-unescaped-entities": "off",
     },
   },
   {
