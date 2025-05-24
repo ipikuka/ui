@@ -1,10 +1,11 @@
+/// <reference types="vitest" />
 import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
+
 import { coverageConfigDefaults } from "vitest/config";
+import react from "@vitejs/plugin-react";
 import dts from "vite-plugin-dts";
 import * as path from "path";
 
-/// <reference types="vitest" />
 export default defineConfig({
   plugins: [
     react(),
@@ -30,7 +31,9 @@ export default defineConfig({
     },
   },
   test: {
-    include: ["tests/**/*.spec.ts"],
+    environment: "jsdom",
+    setupFiles: ["./vitest-setup-tests.js"],
+    include: ["**/*.{test,spec}.ts?(x)"],
     coverage: {
       provider: "v8",
       reporter: [
