@@ -3,6 +3,7 @@ import tseslint from "typescript-eslint";
 import globals from "globals";
 import pluginReact from "eslint-plugin-react";
 import pluginReactHooks from "eslint-plugin-react-hooks";
+import pluginVitest from "eslint-plugin-vitest";
 import pluginStorybook from "eslint-plugin-storybook";
 import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
 export default tseslint.config(
@@ -41,26 +42,25 @@ export default tseslint.config(
       "react-hooks": pluginReactHooks,
       storybook: pluginStorybook,
     },
+    settings: {
+      react: {
+        version: "detect",
+      },
+    },
     rules: {
       ...pluginReact.configs.recommended.rules,
       ...pluginReactHooks.configs.recommended.rules,
       ...pluginStorybook.configs.recommended.rules,
       "prettier/prettier": "error",
+      "react/react-in-jsx-scope": "off",
     },
   },
   {
     name: "vitest",
-    files: ["**/*.spec.ts", "**/*.test.ts"],
-    plugins: { jest: pluginJest },
+    files: ["**/*.{spec,test}.{ts,tsx}"],
+    plugins: { vitest: pluginVitest },
     languageOptions: {
-      globals: pluginJest.environments.globals.globals,
-    },
-    rules: {
-      "jest/no-disabled-tests": "warn",
-      "jest/no-focused-tests": "error",
-      "jest/no-identical-title": "error",
-      "jest/prefer-to-have-length": "warn",
-      "jest/valid-expect": "error",
+      globals: pluginVitest.environments.globals,
     },
   },
   {
