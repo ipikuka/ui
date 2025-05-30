@@ -6,70 +6,59 @@ import pluginReactHooks from "eslint-plugin-react-hooks";
 import pluginVitest from "eslint-plugin-vitest";
 import pluginStorybook from "eslint-plugin-storybook";
 import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
-export default tseslint.config(
-  { files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"] },
-  {
-    ignores: [
-      ".DS_Store",
-      ".vscode/",
-      "archive/",
-      "coverage/",
-      "dist/",
-      "node_modules/",
-      "package-lock.json",
-    ],
-  },
-  {
-    languageOptions: {
-      parserOptions: {
-        ecmaFeatures: { jsx: true },
-      },
-      globals: {
-        ...globals.node,
-        ...globals.browser,
-      },
+export default tseslint.config({ files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"] }, {
+  ignores: [
+    ".DS_Store",
+    ".vscode/",
+    "archive/",
+    "coverage/",
+    "dist/",
+    "node_modules/",
+    "package-lock.json",
+  ],
+}, {
+  languageOptions: {
+    parserOptions: {
+      ecmaFeatures: { jsx: true },
+    },
+    globals: {
+      ...globals.node,
+      ...globals.browser,
     },
   },
-  eslint.configs.recommended,
-  tseslint.configs.recommended,
-  {
-    files: ["**/*.{js,mjs,cjs}"],
-    ...tseslint.configs.disableTypeChecked,
+}, eslint.configs.recommended, tseslint.configs.recommended, {
+  files: ["**/*.{js,mjs,cjs}"],
+  ...tseslint.configs.disableTypeChecked,
+}, {
+  plugins: {
+    react: pluginReact,
+    "react-hooks": pluginReactHooks,
+    storybook: pluginStorybook,
   },
-  {
-    plugins: {
-      react: pluginReact,
-      "react-hooks": pluginReactHooks,
-      storybook: pluginStorybook,
-    },
-    settings: {
-      react: {
-        version: "detect",
-      },
-    },
-    rules: {
-      ...pluginReact.configs.recommended.rules,
-      ...pluginReactHooks.configs.recommended.rules,
-      ...pluginStorybook.configs.recommended.rules,
-      "prettier/prettier": "error",
-      "react/react-in-jsx-scope": "off",
-      "react/no-unescaped-entities": "off",
+  settings: {
+    react: {
+      version: "detect",
     },
   },
-  {
-    name: "vitest",
-    files: ["**/*.{spec,test}.{ts,tsx}"],
-    plugins: { vitest: pluginVitest },
-    languageOptions: {
-      globals: pluginVitest.environments.globals,
-    },
+  rules: {
+    ...pluginReact.configs.recommended.rules,
+    ...pluginReactHooks.configs.recommended.rules,
+    ...pluginStorybook.configs.recommended.rules,
+    "prettier/prettier": "error",
+    "react/react-in-jsx-scope": "off",
+    "react/no-unescaped-entities": "off",
   },
-  {
-    files: ["**/*.stories.{js,jsx,ts,tsx}"],
-    rules: {
-      "storybook/hierarchy-separator": "warn",
-      "storybook/default-exports": "warn",
-    },
+}, {
+  name: "vitest",
+  files: ["**/*.{spec,test}.{ts,tsx}"],
+  plugins: { vitest: pluginVitest },
+  languageOptions: {
+    globals: pluginVitest.environments.globals,
   },
-  eslintPluginPrettierRecommended,
-);
+}, {
+  files: ["**/*.stories.{js,jsx,ts,tsx}"],
+  rules: {
+    "storybook/hierarchy-separator": "warn",
+    "storybook/default-exports": "warn",
+  },
+}, eslintPluginPrettierRecommended, storybook.configs["flat/recommended"]);

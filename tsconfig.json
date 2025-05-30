@@ -19,5 +19,6 @@
     "emitDeclarationOnly": true,
     "types": ["@testing-library/jest-dom"]
   },
-  "include": ["./src"]
+  "include": ["./src"],
+  "exclude": ["./archive"]
 }

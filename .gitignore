@@ -4,3 +4,6 @@ dist
 node_modules
 coverage
 *storybook.log
+archive
+
+storybook-static

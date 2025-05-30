@@ -1,6 +1,6 @@
 {
   "name": "@ipikuka/ui",
-  "version": "1.0.0-alfa",
+  "version": "1.0.1-alpha",
   "description": "A react ui design system with storybook",
   "main": "index.js",
   "type": "module",
@@ -47,9 +47,9 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.27.0",
-    "@storybook/addon-docs": "^9.1.0-alpha.0",
-    "@storybook/addon-onboarding": "^9.1.0-alpha.0",
-    "@storybook/react-vite": "^9.1.0-alpha.0",
+    "@storybook/addon-docs": "^9.0.0",
+    "@storybook/addon-onboarding": "^9.0.0",
+    "@storybook/react-vite": "^9.0.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
     "@types/node": "^22.15.20",
@@ -64,7 +64,7 @@
     "eslint-plugin-prettier": "^5.4.0",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^5.2.0",
-    "eslint-plugin-storybook": "^9.1.0-alpha.0",
+    "eslint-plugin-storybook": "^9.0.0",
     "eslint-plugin-vitest": "^0.5.4",
     "globals": "^16.1.0",
     "jsdom": "^26.1.0",
@@ -72,7 +72,7 @@
     "postcss-nesting": "^13.0.1",
     "prettier": "^3.5.3",
     "rimraf": "^5.0.10",
-    "storybook": "^9.1.0-alpha.0",
+    "storybook": "^9.0.0",
     "type-coverage": "^2.29.7",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.32.1",
@@ -85,8 +85,5 @@
     "detail": true,
     "ignoreAsAssertion": true,
     "strict": true
-  },
-  "overrides": {
-    "storybook": "$storybook"
   }
 }
