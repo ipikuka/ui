@@ -17,6 +17,7 @@ export default tseslint.config(
       "dist/",
       "node_modules/",
       "package-lock.json",
+      ".storybook",
     ],
   },
   {
@@ -40,7 +41,6 @@ export default tseslint.config(
     plugins: {
       react: pluginReact,
       "react-hooks": pluginReactHooks,
-      storybook: pluginStorybook,
     },
     settings: {
       react: {
@@ -50,7 +50,6 @@ export default tseslint.config(
     rules: {
       ...pluginReact.configs.recommended.rules,
       ...pluginReactHooks.configs.recommended.rules,
-      ...pluginStorybook.configs.recommended.rules,
       "prettier/prettier": "error",
       "react/react-in-jsx-scope": "off",
       "react/no-unescaped-entities": "off",
@@ -64,13 +63,14 @@ export default tseslint.config(
       globals: pluginVitest.environments.globals,
     },
   },
+  ...pluginStorybook.configs["flat/recommended"],
   {
     files: ["**/*.stories.{js,jsx,ts,tsx}"],
     rules: {
+      "storybook/csf-component": "warn",
       "storybook/hierarchy-separator": "warn",
       "storybook/default-exports": "warn",
     },
   },
   eslintPluginPrettierRecommended,
-  storybook.configs["flat/recommended"],
 );
