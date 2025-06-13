@@ -1,6 +1,6 @@
 {
   "name": "@ipikuka/ui",
-  "version": "1.0.1-alpha",
+  "version": "1.0.2-alpha",
   "description": "A react ui design system with storybook",
   "main": "index.js",
   "type": "module",
