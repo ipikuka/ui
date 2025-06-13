@@ -1,7 +1,7 @@
 /// <reference types="vitest" />
 import { defineConfig } from "vite";
-
 import { coverageConfigDefaults } from "vitest/config";
+
 import react from "@vitejs/plugin-react";
 import dts from "vite-plugin-dts";
 
@@ -39,21 +39,26 @@ export default defineConfig({
   },
   test: {
     projects: [
-      // ✅ Unit test config (jsdom, coverage, etc.)
+      // Unit test config (jsdom)
       {
         extends: true,
         test: {
           name: "unit",
+          globals: true,
           environment: "jsdom",
           setupFiles: ["./vitest-setup-tests.js"],
           include: ["**/*.{test,spec}.ts?(x)"],
         },
       },
 
-      // ✅ Storybook test config (browser + Playwright)
+      // Storybook test config (browser + Playwright)
       {
         extends: true,
-        plugins: [storybookTest({ configDir: path.join(dirname, ".storybook") })],
+        plugins: [
+          // The plugin will run tests for the stories defined in your Storybook config
+          // See options at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon#storybooktest
+          storybookTest({ configDir: path.join(dirname, ".storybook") }),
+        ],
         test: {
           name: "storybook",
           browser: {
